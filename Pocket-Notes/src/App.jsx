@@ -1,6 +1,18 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import Applayout from "./components/Applayout";
+import Home from "./components/Home";
+
 function App() {
-  // const k = 14;
-  return <div>Hello World</div>;
+
+  return <BrowserRouter>
+    <Routes>
+      <Route element={<Applayout />} >
+        <Route index element={<Home />}
+        />
+      </Route>
+    </Routes>
+  </BrowserRouter>
 }
 
 export default App;
