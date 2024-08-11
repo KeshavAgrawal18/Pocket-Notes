@@ -5,15 +5,6 @@ import Sidebar from "./Sidebar";
 
 const Main = styled.main`
   background-color: var(--color-grey-50);
-  overflow-y: auto;
-
-  /* Hide scrollbar */
-  scrollbar-width: none; /* For Firefox */
-  -ms-overflow-style: none; /* For Internet Explorer and Edge */
-
-  &::-webkit-scrollbar {
-    display: none; /* For Chrome, Safari, and Opera */
-  }
 `;
 
 const StyledAppLayout = styled.div`
@@ -21,6 +12,7 @@ const StyledAppLayout = styled.div`
   grid-template-columns: 18rem 1fr;
   height: 100vh;
   margin: 0;
+  position: relative;
 `;
 const Container = styled.div`
   max-width: 120rem;
@@ -28,6 +20,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  position: relative;
 `;
 
 function Applayout() {

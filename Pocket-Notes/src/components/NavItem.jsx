@@ -1,4 +1,6 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { formatString, getInitials } from "../utils/helper";
 
 const StyledNavItem = styled.li`
   font-size: 1.2rem;
@@ -7,10 +9,11 @@ const StyledNavItem = styled.li`
   align-items: center;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  
+
   &:hover {
-    background-color: #e0e0e0;
+    background-color: ${props => props.clickable ? "#e0e0e0" : ""};
   }
+
 `;
 
 const Icon = styled.div`
@@ -28,30 +31,32 @@ const Icon = styled.div`
   text-transform: uppercase;
 `;
 
-function NavItem({ item, index }) {
+function NavItem({ item, index, clickable = true }) {
     // List of colors
     const colors = [
         '#FF5733', '#18be36', '#3357FF', '#FF33A1', '#0ec9bd',
         '#dad603', '#FF9A33', '#9133FF', '#33FF94', '#FF5733',
     ];
 
-    const getInitials = (item) => {
-        const words = item.split(' ');
-        if (words.length === 1) {
-            return words[0].charAt(0);
-        } else {
-            return words[0].charAt(0) + words[1].charAt(0);
-        }
-    };
-
-
     return (
-        <StyledNavItem>
-            <Icon color={colors[index % colors.length]}>
-                {getInitials(item)}
-            </Icon>
-            {item}
-        </StyledNavItem>
+        <>
+            {clickable ?
+                <Link to={`notes/${formatString(item)}`} style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <StyledNavItem clickable={clickable}>
+                        <Icon color={colors[index % colors.length]}>
+                            {getInitials(item)}
+                        </Icon>
+                        {item}
+                    </StyledNavItem>
+                </Link> :
+                <StyledNavItem clickable={clickable}>
+                    <Icon color={colors[index % colors.length]} >
+                        {getInitials(item)}
+                    </Icon>
+                    {item}
+                </StyledNavItem>
+            }
+        </>
     );
 }
 

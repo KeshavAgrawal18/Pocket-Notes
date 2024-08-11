@@ -1,6 +1,7 @@
 import { FaPlus } from "react-icons/fa";
 import styled from "styled-components";
 import NavItem from "./NavItem";
+import { Link } from "react-router-dom";
 
 const Container = styled.div`
   width: 250px;
@@ -10,7 +11,7 @@ const Container = styled.div`
   justify-content: flex-start;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-  position: relative;
+  position: fixed;
 `;
 
 const Header = styled.h2`
@@ -40,24 +41,36 @@ const AddButton = styled.button`
   font-size: 1.5rem;
   cursor: pointer;
   position: absolute;
-  bottom: 20px;
+  bottom: 40px;
   right: 20px;
-  
+
   &:hover {
     background-color: darkblue;
   }
 `;
 
 function Sidebar() {
-
-  const navItems = ['My Notes', 'My Personal grp', 'javaScript grp', 'java', 'My Notes', 'My Personal grp', 'javaScript grp', 'java', 'My Notes', 'My Personal grp', 'javaScript grp', 'java'];
-
+  const navItems = [
+    "My Notes",
+    "My Personal grp",
+    "javaScript grp",
+    "java",
+    "My Notes",
+    "My Personal grp",
+    "javaScript grp",
+    "java",
+    "My Notes",
+    "My Personal grp",
+    "javaScript grp",
+    "java",
+  ];
 
   return (
     <div>
-
       <Container>
-        <Header>Pocket Notes</Header>
+        <Link to="/">
+          <Header>Pocket Notes</Header>
+        </Link>
         <NavList>
           {navItems.map((item, index) => (
             <NavItem key={index} index={index} item={item} />

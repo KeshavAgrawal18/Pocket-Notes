@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { FaLock } from 'react-icons/fa';
+import { FaLock } from "react-icons/fa";
 
 const Container = styled.div`
-  background-color: #DAE5F5;
+  background-color: #dae5f5;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -46,18 +46,21 @@ const FooterText = styled.span`
 
 function Home() {
   return (
-    <Container>
-      <Image src="img/home.png" alt="Pocket Notes" />
-      <Heading>Pocket Notes</Heading>
-      <Text>
-        Send and receive messages without keeping your phone online.<br />
-        Use Pocket Notes on up to 4 linked devices and 1 mobile phone.
-      </Text>
-      <Footer>
-        <LockIcon />
-        <FooterText>end-to-end encrypted</FooterText>
-      </Footer>
-    </Container>
+    <div>
+      <Container>
+        <Image src="img/home.png" alt="Pocket Notes" />
+        <Heading>Pocket Notes</Heading>
+        <Text>
+          Send and receive messages without keeping your phone online.
+          <br />
+          Use Pocket Notes on up to 4 linked devices and 1 mobile phone.
+        </Text>
+        <Footer>
+          <LockIcon />
+          <FooterText>end-to-end encrypted</FooterText>
+        </Footer>
+      </Container>
+    </div>
   );
 }
 
